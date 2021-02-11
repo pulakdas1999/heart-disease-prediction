@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<div style="text-align:center">
+    <img src="{{ url_for('static', filename='download.jfif') }}">
+</div>
+<br>
+<br>
+<main role="main">
+    <div class="jumbotron">
+        <div class="col-sm-8 mx-auto">
+            <h1>Welcome</h1>
+            <p>Welcome to our heart disease prediction system. Here, you just need to fill in the required fields and the system
+            automatically predicts whether the person is having or can have a cardiac problem.</p>
+            <p>
+                <a class="btn btn-primary" href="/decide" role="button">Start prediction &raquo;</a>
+            </p>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>__Pulak__</title>
+{% endblock %}
+
+{% block body %}
+    <div style="text-align:center">
+        <img src="{{ url_for('static', filename='download.jfif') }}">
+    </div>
+    <hr>
+    <div>
+        {% if output %}
+            <h1>{{ output }}</h1>
+        {% else %}
+            <h3>Let the computer decide whether the person is suffering from any heart disease ...</h3>
+            <h4>Please fill in the details correctly :</h4>
+            <form action='/decide' method='POST'>
+                <label for="age">AGE</label>
+                <input class="form-control" type="text" name='age' id='age' placeholder="Enter age of the patient (Values -- 29 to 77)" aria-label=" ">
+                <br>
+                <label for="sex">SEX</label>
+                <input class="form-control" type="text" name='sex' id='sex' placeholder="Enter '1' for MALE and '0' for FEMALE" aria-label=" ">
+                <br>
+                <label for="cp">CP</label>
+                <input class="form-control" type="text" name='cp' id='cp' placeholder="Enter chest pain type i.e., Type-1 to Type-4" aria-label=" ">
+                <br>
+                <label for="trestbps">TRESTBPS</label>
+                <input class="form-control" type="text" name='trestbps' id='trestbps' placeholder="Enter the resting blood pressure (in mm Hg on admission to the hospital) (Values -- 94 to 200)" aria-label=" ">
+                <br>
+                <label for="chol">CHOL</label>
+                <input class="form-control" type="text" name='chol' id='chol' placeholder="Enter the serum cholesterol in mg/dl (Values -- 126 to 564)" aria-label=" ">
+                <br>
+                <label for="fbs">FBS</label>
+                <input class="form-control" type="text" name='fbs' id='fbs' placeholder="Enter '1' for TRUE and '0' for FALSE (fasting blood sugar & gt; 120 mg/dl)" aria-label=" ">
+                <br>
+                <label for="restecg">REST-ECG</label>
+                <input class="form-control" type="text" name='restecg' id='restecg' placeholder="Enter resting electro-cardiographic results (Values -- 0, 1, 2)" aria-label=" ">
+                <br>
+                <label for="thalach">THALACH</label>
+                <input class="form-control" type="text" name='thalach' id='thalach' placeholder="Enter maximum heart rate achieved (Values -- 71 to 202)" aria-label=" ">
+                <br>
+                <label for="exang">EXANG</label>
+                <input class="form-control" type="text" name='exang' id='exang' placeholder="Confirm whether the person has exercise induced angina ('1' for YES and '0' for NO)" aria-label=" ">
+                <br>
+                <label for="oldpeak">OLDPEAK</label>
+                <input class="form-control" type="text" name='oldpeak' id='oldpeak' placeholder="Amount of ST depression induced by exercise relative to rest (Values -- 0 to 6.2)" aria-label=" ">
+                <br>
+                <label for="slope">SLOPE</label>
+                <input class="form-control" type="text" name='slope' id='slope' placeholder="Enter the slope of the peak exercise ST segment (Values -- 0, 1, 2)" aria-label=" ">
+                <br>
+                <label for="ca">CA</label>
+                <input class="form-control" type="text" name='ca' id='ca' placeholder="Enter the number of major vessels colored by fluoroscopy (Values -- 0, 1, 2, 3)" aria-label=" ">
+                <br>
+                <label for="thal">THAL</label>
+                <input class="form-control" type="text" name='thal' id='thal' placeholder="Enter whether the patients heart beat is normal (Values -- '0' for normal '1' for fixed defect '2' for reversable defect)" aria-label=" ">
+                <br>
+                <input type='submit' value='Predict'>
+            </form>
+            <br>
+        {% endif %}
+    </div>
+    <hr>
+{% endblock %}
